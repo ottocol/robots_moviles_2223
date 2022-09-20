@@ -10,7 +10,7 @@ Como idea sencilla podéis mirar las lecturas que apuntan más o menos a la dere
  - Que la velocidad lineal sea proporcional a la distancia al obstáculo más cercano.
  - ... Cualquier otra idea que se os ocurra.
  
- > **IMPORTANTE** la idea es si es posible, probar el código con los Turtlebot 2 del laboratorio, por lo que sería interesante que la probárais antes en un simulador que use un sensor de rango similar a los Turtlebot 2 del laboratorio. El simulador *stage* con el mundo de ejemplo y la configuración que os dejamps en moodle sería el más parecido en este sentido (consultad el apartado "Probando un robot en el simulador Stage" de los apuntes de "[Introducción a ROS como usuario](intro_ROS_usuario.html"). Aunque parezca contraintuitivo, el simulador de Turtlebot 2 con la configuración por defecto usa un sensor de rango muy distinto al laser de los robots reales y no es muy apropiado para este caso.
+ > **IMPORTANTE** la idea es si es posible, probar el código con los Turtlebot 2 del laboratorio, por lo que sería interesante que la probárais antes en un simulador que use un sensor de rango similar a los Turtlebot 2 del laboratorio. El simulador *stage* con el mundo de ejemplo y la configuración que os dejamps en moodle sería el más parecido en este sentido (consultad el apartado "Probando un robot en el simulador Stage" de los apuntes de "[Introducción a ROS como usuario"](intro_ROS_usuario.html). Aunque parezca contraintuitivo, el simulador de Turtlebot 2 con la configuración por defecto usa un sensor de rango muy distinto al laser de los robots reales y no es muy apropiado para este caso.
 
 ## Ayuda para la implementación: sensores de rango 2D en ROS
 
