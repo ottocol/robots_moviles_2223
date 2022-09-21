@@ -12,6 +12,14 @@ Como idea sencilla podéis mirar las lecturas que apuntan más o menos a la dere
  
  > **IMPORTANTE** la idea es si es posible, probar el código con los Turtlebot 2 del laboratorio, por lo que sería interesante que la probárais antes en un simulador que use un sensor de rango similar a los Turtlebot 2 del laboratorio. El simulador *stage* con el mundo de ejemplo y la configuración que os dejamps en moodle sería el más parecido en este sentido (consultad el apartado "Probando un robot en el simulador Stage" de los apuntes de "[Introducción a ROS como usuario"](intro_ROS_usuario.html). Aunque parezca contraintuitivo, el simulador de Turtlebot 2 con la configuración por defecto usa un sensor de rango muy distinto al laser de los robots reales y no es muy apropiado para este caso.
 
+ > Cuidado, el nombre de los topics para los motores y el láser cambian entre Stage y el  Turtlebot real
+ 
+|         | Turtlebot real                   | Stage        |
+|---------|----------------------------------|--------------|
+| Láser   | `/scan`                          | `/base_scan` |
+| Motores | `/mobile_base/commands/velocity` | `/cmd_vel`   |
+
+
 ## Ayuda para la implementación: sensores de rango 2D en ROS
 
 Los sensores de rango 2D dan distancias a obstáculos en un rango angular determinado, normalmente los sensores apuntan hacia donde está mirando el robot. Podéis obtener la información del sensor normalmente en el topic `/scan` o `/base_scan`, dependiendo del robot o del simulador usado. Probad a ver cuál aparece al hacer un `rostopic list`.
