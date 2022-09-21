@@ -14,7 +14,7 @@ Como idea sencilla podéis mirar las lecturas que apuntan más o menos a la dere
 
  > Cuidado, el nombre de los topics para los motores y el láser cambian entre Stage y el  Turtlebot real
  
-|         | Turtlebot real                   | Stage        |
+> |         | Turtlebot real                   | Stage        |
 |---------|----------------------------------|--------------|
 | Láser   | `/scan`                          | `/base_scan` |
 | Motores | `/mobile_base/commands/velocity` | `/cmd_vel`   |
