@@ -142,3 +142,26 @@ echo "ROS_HOSTNAME=LA_IP_DE_TU_PC" >> ~/.bashrc
 - Para averiguar la IP de tu PC en Linux puedes usar el comando `ip addr` (busca la ip de la interfaz de red llamada `inet`) o bien el comando `ifconfig` (tendrás que buscar entre la lista de interfaces de red el nombre que creas que es, ya que cambia de un PC a otro). Como pista, en la wifi de los laboratorios las IPs siempre empiezan por 192.168.1, lo único que cambiará será el último número.
 
 > **IMPORTANTE:** recuerda editar el `.bashrc` de tu PC después de terminar de trabajar con el robot y quitar las dos líneas que se han añadido, si no no te funcionará ROS sin tener el robot
+
+### Conectar con el robot en una terminal
+
+En este modo no tienes acceso al PC de a bordo del robot en modo gráfico, solo en modo texto. Para abrir una terminal en el robot haz:
+
+```bash
+ssh turtlebot@ip_del_robot #cuidado, en el robot 5 es "ssh tb2@ip_del_robot"
+```
+
+La contraseña para todos los robots es `ros`.
+
+En la terminal del robot ya puedes teclear los comandos que necesites para poner en marcha motores, sensores, etc, por ejemplo:
+
+```bash
+#arranque "mínimo" para que la base se mueva
+roslaunch turtlebot_bringup minimal.launch
+#SOLO si necesitas el laser
+roslaunch turtlebot_bringup hokuyo_ust10lx.launch
+#SOLO si necesitas la cámara RGBD
+roslaunch astra_launch astra.launch
+```
+
+Eso sí, necesitarás una terminal en el robot por cada uno de estos (abierta con `ssh`), ya que deben quedarse funcionando.
