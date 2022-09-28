@@ -15,7 +15,61 @@ Arranca el robot con el interruptor de la base. Espera un minuto a que arranque 
 De momento, en las primeras prácticas vamos a usar el primer método, más adelante explicaremos el segundo.
 
 
-## Alternativa 1: Conexión con el robot mediante VNC<a name="vnc"></a>
+
+## Alternativa 1: Conexión con el robot en modo cliente/servidor
+
+**Ventajas**:
+
+- Se puede usar Rviz
+- Requiere menos tráfico de red salvo que hagas *streaming* de la cámara del robot
+
+**Inconvenientes**:
+ 
+ - Necesitas tener ROS instalado en tu ordenador
+
+En el modo cliente/servidor, el cliente es nuestro PC y el servidor el robot. Hay algunos nodos de ROS que deben correr en el servidor (por ejemplo el `turtlebot_bringup.launch`) y otros en nuestro PC (por ejemplo `RViz`). En otros es indiferente.
+
+### Configuración en tu PC
+
+Para que este modo funcione, necesitas definir un par de variables de entorno en cada terminal
+
+Las siguientes instrucciones definen las variables y las añaden al archivo `.bashrc` para que tengan efecto en cada nueva terminal abierta y no tengas que teclearlas cada vez.
+
+```bash
+echo "ROS_MASTER_URI=http://LA_IP_DEL TURTLEBOT:11311" >> ~/.bashrc
+echo "ROS_HOSTNAME=LA_IP_DE_TU_PC" >> ~/.bashrc
+```
+
+- La IP del Turtlebot 1 es 192.168.1.5, la del 2 es 192.168.1.6 y así sucesivamente (el último número de la IP es 4+el número de robot)
+- Para averiguar la IP de tu PC en Linux puedes usar el comando `ip addr` (busca la ip de la interfaz de red llamada `inet`) o bien el comando `ifconfig` (tendrás que buscar entre la lista de interfaces de red el nombre que creas que es, ya que cambia de un PC a otro). Como pista, en la wifi de los laboratorios las IPs siempre empiezan por 192.168.1, lo único que cambiará será el último número.
+
+> **IMPORTANTE:** recuerda editar el `.bashrc` de tu PC después de terminar de trabajar con el robot y quitar las dos líneas que se han añadido, si no no te funcionará ROS sin tener el robot
+
+### Conectar con el robot en una terminal
+
+En este modo no tienes acceso al PC de a bordo del robot en modo gráfico, solo en modo texto. Para abrir una terminal en el robot haz:
+
+```bash
+ssh turtlebot@ip_del_robot #cuidado, en el robot 5 es "ssh tb2@ip_del_robot"
+```
+
+La contraseña para todos los robots es `ros`.
+
+En la terminal del robot ya puedes teclear los comandos que necesites para poner en marcha motores, sensores, etc, por ejemplo:
+
+```bash
+#arranque "mínimo" para que la base se mueva
+roslaunch turtlebot_bringup minimal.launch
+#SOLO si necesitas el laser
+roslaunch turtlebot_bringup hokuyo_ust10lx.launch
+#SOLO si necesitas la cámara RGBD
+roslaunch astra_launch astra.launch
+```
+
+Eso sí, necesitarás una terminal en el robot por cada uno de estos (abierta con `ssh`), ya que deben quedarse funcionando.
+
+
+## Alternativa 2: Conexión con el robot mediante VNC<a name="vnc"></a>
 
 **Ventajas**:
 
@@ -113,55 +167,3 @@ Copiar desde el robot al PC:
 #FIJATE EN EL '.' DEL FINAL, esto hace que se copie en la carpeta actual
 scp turtlebot@IP_del_robot:~/mi_archivo.zip .
 ```
-
-## Alternativa 2: Conexión con el robot en modo cliente/servidor
-
-**Ventajas**:
-
-- Se puede usar Rviz
-- Requiere menos tráfico de red salvo que hagas *streaming* de la cámara del robot
-
-**Inconvenientes**:
- 
- - Necesitas tener ROS instalado en tu ordenador
-
-En el modo cliente/servidor, el cliente es nuestro PC y el servidor el robot. Hay algunos nodos de ROS que deben correr en el servidor (por ejemplo el `turtlebot_bringup.launch`) y otros en nuestro PC (por ejemplo `RViz`). En otros es indiferente.
-
-### Configuración en tu PC
-
-Para que este modo funcione, necesitas definir un par de variables de entorno en cada terminal
-
-Las siguientes instrucciones definen las variables y las añaden al archivo `.bashrc` para que tengan efecto en cada nueva terminal abierta y no tengas que teclearlas cada vez.
-
-```bash
-echo "ROS_MASTER_URI=http://LA_IP_DEL TURTLEBOT:11311" >> ~/.bashrc
-echo "ROS_HOSTNAME=LA_IP_DE_TU_PC" >> ~/.bashrc
-```
-
-- La IP del Turtlebot 1 es 192.168.1.5, la del 2 es 192.168.1.6 y así sucesivamente (el último número de la IP es 4+el número de robot)
-- Para averiguar la IP de tu PC en Linux puedes usar el comando `ip addr` (busca la ip de la interfaz de red llamada `inet`) o bien el comando `ifconfig` (tendrás que buscar entre la lista de interfaces de red el nombre que creas que es, ya que cambia de un PC a otro). Como pista, en la wifi de los laboratorios las IPs siempre empiezan por 192.168.1, lo único que cambiará será el último número.
-
-> **IMPORTANTE:** recuerda editar el `.bashrc` de tu PC después de terminar de trabajar con el robot y quitar las dos líneas que se han añadido, si no no te funcionará ROS sin tener el robot
-
-### Conectar con el robot en una terminal
-
-En este modo no tienes acceso al PC de a bordo del robot en modo gráfico, solo en modo texto. Para abrir una terminal en el robot haz:
-
-```bash
-ssh turtlebot@ip_del_robot #cuidado, en el robot 5 es "ssh tb2@ip_del_robot"
-```
-
-La contraseña para todos los robots es `ros`.
-
-En la terminal del robot ya puedes teclear los comandos que necesites para poner en marcha motores, sensores, etc, por ejemplo:
-
-```bash
-#arranque "mínimo" para que la base se mueva
-roslaunch turtlebot_bringup minimal.launch
-#SOLO si necesitas el laser
-roslaunch turtlebot_bringup hokuyo_ust10lx.launch
-#SOLO si necesitas la cámara RGBD
-roslaunch astra_launch astra.launch
-```
-
-Eso sí, necesitarás una terminal en el robot por cada uno de estos (abierta con `ssh`), ya que deben quedarse funcionando.
