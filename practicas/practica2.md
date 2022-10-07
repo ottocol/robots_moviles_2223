@@ -1,4 +1,4 @@
-# Práctica 2 de Robots Móviles. Mapeado y localización, parte I
+# Práctica 2 de Robots Móviles. Mapeado y localización
 
 En esta práctica vamos a trabajar con varios algoritmos de localización y mapeado de robots móviles que iremos viendo en las sesiones teóricas.
 
@@ -37,25 +37,56 @@ No obstante **estos botones no funcionarán si no está cargado en memoria el ma
 
 Preguntas a contestar en este apartado:
 
-- Investiga qué significa esa especie de "recuadro de colores" que aparece rodeando al robot cuando se pone a calcular la trayectoria y se va moviendo ¿qué significan los colores cálidos/frios?
+- Investiga qué significa esa especie de "recuadro de colores" que aparece en `rviz` rodeando al robot cuando se pone a calcular la trayectoria y se va moviendo ¿qué significan los colores cálidos/frios?
 - Los algoritmos que usa ROS para calcular la trayectoria óptima desde el origen hasta el destino están implementados en el paquete de ROS `global_planner`. Investiga qué diferentes algoritmos se usan en este paquete, si alguno te suena de haberlo dado en otras asignaturas del grado, describe en un párrafo cómo funcionaban y en cuál o cuáles asignaturas los viste.
 - El "navigation stack" son los nodos de ROS que necesitamos cargar en memoria para que funcione la navegación. Averigua algo más sobre estos nodos, pon los nombres y describe brevemente el papel de cada uno en 1-2 frases.
 
+## Parte adicional: Modelo de movimiento (hasta 0,75 puntos)
+
+Se trata de implementar la versión muestreada del modelo de movimiento basado en odometría. El algoritmo visto en clase está en la transparencia titulada [**"Modelo de movimiento de odometría muestreado"**](https://moodle2022-23.ua.es/moodle/pluginfile.php/138578/mod_resource/content/0/tema2.2.%20modelo%20error%20movimiento.pdf#page=23) del tema 2, parte 2.
+
+Se os proporciona en moodle una plantilla de código para que todos implementéis  las funciones con los mismos parámetros. La implementación se debe realizar en el archivo `modelo_movimiento.py`. Se incluye un pequeño programa que hace un gráfico del modelo para que podáis comprobar visualmente que está bien implementado. 
+
+Mirad el LEEME y los comentarios al fuente de la plantilla para más instrucciones.
+
+
+## Parte adicional: Modelo de sensor tipo *distancia-orientación* (hasta 0,75 puntos)
+
+Se pide implementar un **modelo del sensor para un sensor basado en landmarks**, que detecte la distancia y orientación a un landmark. El algoritmo está en la transparencia titulada "Modelo de sensor de distancia y orientación" del tema 2, parte 3. Supondremos resuelto el problema de la asociación de datos (el sensor ya sabe a qué landmark corresponde la medida).
+
+La plantilla con el formato de la función a implementar es la misma que en el apartado anterior. La implementación se debe realizar en el archivo `modelo_sensor.py`. Se incluye un  programa que hace un gráfico del modelo para que podáis comprobar que está bien implementado. 
+
+Mirad el LEEME y los comentarios al fuente de la plantilla para más instrucciones.
+
+## Parte adicional: implementar un filtro de partículas en ROS (hasta 1.5 puntos)
+
+> Para hacer esta parte adicional necesitáis haber implementado el modelo de movimiento y el modelo del sensor
+
+Se pidee **implementar en ROS un algoritmo de localización con filtro de partículas** usando el modelo de movimiento y del sensor de los puntos anteriores. Se dejará en moodle una plantilla con instrucciones, para que no tengáis que escribir el algoritmo desde cero.
+
+
+## Parte adicional: probar el mapeado en los robots reales (hasta 1 punto)
+
+Los días 2 y 9 de noviembre se podrá probar el mapeado y la localización en los Turtlebot reales. Se harán turnos para que se puedan usar los robots en grupos más reducidos, os puede tocar hacer la prueba uno de estos dos días (pero no ambos). La lista de turnos se elaborará durante la semana del 17 al 23 de octubre. 
 
 ## Entrega de la práctica
 
 ### Baremo
 
-
-- **Parte I: Requisitos mínimos (hasta un 6)**: la práctica debe estar adecuadamente documentada, respondiendo como mínimo a las preguntas que se plantean y detallando los resultados de todos los experimentos realizados. 
-- **Parte II: Requisitos adicionales (hasta un 10)**: todavía no se han publicado, los publicaremos durante esta semana.
+- **Requisitos mínimos (hasta un 6)**: la práctica debe estar adecuadamente documentada, respondiendo como mínimo a las preguntas que se plantean y detallando los resultados de todos los experimentos realizados. 
+- **(hasta 0.75 puntos adicionales)**: implementación del modelo de movimiento.
+- **(hasta 0.75 puntos adicionales)**: implementación del modelo del sensor.
+- **(hasta 1.5 puntos adicionales)**: implementar un filtro de partículas en ROS.
+- **(hasta 1 punto adicional)** probar el mapeado en los Turtlebot reales.
+- En lugar de alguno de los puntos anteriores se puede hacer cualquier otra ampliación que se os ocurra, por ejemplo
+	+ Probar un algoritmo ya implementado de mapeado y/o localización que no sea de los vistos en clase, hacer experimentos, compararlo con los que vemos nosotros, ...
+	+ Leer un artículo científico sobre mapeado/localización (estado actual de la investigación, algoritmos alternativos...) haciendo un resumen del contenido. 
+	+ **Consultad con el profesor** lo que queréis hacer para ver cuánto se podría valorar en el baremo, si queréis que os pase enlaces a artículos o algoritmos, etc.
 
 
 ### Plazos y procedimiento de entrega
 
-> **IMPORTANTE**: de momento solo se ha publicado la parte I para que podáis empezar a trabajar los que ya hayáis probado el código de la anterior. Todavía falta la parte II de los requisitos, el enunciado no está completo.
-
-La práctica completa (partes I y II) se podrá entregar hasta las 23:59 horas del **martes 15 de Noviembre del 2022**.
+La práctica se podrá entregar hasta las 23:59 horas del **martes 15 de Noviembre del 2022**.
 
 La entrega se realizará a través del Moodle de la asignatura.
 
