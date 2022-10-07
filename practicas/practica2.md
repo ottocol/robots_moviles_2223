@@ -37,7 +37,7 @@ No obstante **estos botones no funcionarán si no está cargado en memoria el ma
 
 Preguntas a contestar en este apartado:
 
-- Investiga qué significa esa especie de "recuadro de colores" que aparece en `rviz` rodeando al robot cuando se pone a calcular la trayectoria y se va moviendo ¿qué significan los colores cálidos/frios?
+- Investiga qué significa esa especie de "recuadro de colores" que aparece en `rviz` 	rodeando al robot cuando se pone a calcular la trayectoria y se va moviendo ¿qué significan los colores cálidos/frios?
 - Los algoritmos que usa ROS para calcular la trayectoria óptima desde el origen hasta el destino están implementados en el paquete de ROS `global_planner`. Investiga qué diferentes algoritmos se usan en este paquete, si alguno te suena de haberlo dado en otras asignaturas del grado, describe en un párrafo cómo funcionaban y en cuál o cuáles asignaturas los viste.
 - El "navigation stack" son los nodos de ROS que necesitamos cargar en memoria para que funcione la navegación. Averigua algo más sobre estos nodos, pon los nombres y describe brevemente el papel de cada uno en 1-2 frases.
 
@@ -47,14 +47,18 @@ Se trata de implementar la versión muestreada del modelo de movimiento basado e
 
 Se os proporciona en moodle una plantilla de código para que todos implementéis  las funciones con los mismos parámetros. La implementación se debe realizar en el archivo `modelo_movimiento.py`. Se incluye un pequeño programa que hace un gráfico del modelo para que podáis comprobar visualmente que está bien implementado. 
 
-Mirad el LEEME y los comentarios al fuente de la plantilla para más instrucciones.
+En este apartado además de la implementación deberías cambiar los parámetros del modelo (los alfa) y incluir distintas figuras con los resultados, discutiendo brevemente el por qué de las diferencias entre ellas.
 
+Mirad el LEEME y los comentarios al fuente de la plantilla para más instrucciones.
 
 ## Parte adicional: Modelo de sensor tipo *distancia-orientación* (hasta 0,75 puntos)
 
 Se pide implementar un **modelo del sensor para un sensor basado en landmarks**, que detecte la distancia y orientación a un landmark. El algoritmo está en la transparencia titulada "Modelo de sensor de distancia y orientación" del tema 2, parte 3. Supondremos resuelto el problema de la asociación de datos (el sensor ya sabe a qué landmark corresponde la medida).
 
 La plantilla con el formato de la función a implementar es la misma que en el apartado anterior. La implementación se debe realizar en el archivo `modelo_sensor.py`. Se incluye un  programa que hace un gráfico del modelo para que podáis comprobar que está bien implementado. 
+
+En este apartado además de la implementación deberías cambiar los parámetros del modelo (SIGMA_D y SIGMA_ALFA) y incluir distintas figuras con los resultados, discutiendo brevemente el por qué de las diferencias entre ellas.
+
 
 Mirad el LEEME y los comentarios al fuente de la plantilla para más instrucciones.
 
