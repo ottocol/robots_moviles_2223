@@ -80,7 +80,9 @@ Los días 2 y 9 de noviembre se podrá probar el mapeado y la localización en l
 - **Requisitos mínimos (hasta un 6)**: la práctica debe estar adecuadamente documentada, respondiendo como mínimo a las preguntas que se plantean y detallando los resultados de todos los experimentos realizados. 
 - **(hasta 0.75 puntos adicionales)**: implementación del modelo de movimiento.
 - **(hasta 0.75 puntos adicionales)**: implementación del modelo del sensor.
-- **(hasta 1.5 puntos adicionales)**: implementar un filtro de partículas en ROS.
+- **(hasta 1.5 puntos adicionales)**: probar alguna implementación ya hecha de un algoritmo de filtro de partículas para localización. Deberías
+	+ Realizar varias pruebas con el algoritmo variando los parámetros que puedas (ccomo mínimo el número de partículas)
+	+ Explicar con el máximo detalle que puedas cómo funciona el código identificando las partes que hemos visro en clase (modelo del sensor, modelo de movimiento, bucle del algoritmo, resampling...)
 - **(hasta 1 punto adicional)** probar el mapeado en los Turtlebot reales.
 - En lugar de alguno de los puntos anteriores se puede hacer cualquier otra ampliación que se os ocurra, por ejemplo
 	+ Probar un algoritmo ya implementado de mapeado y/o localización que no sea de los vistos en clase, hacer experimentos, compararlo con los que vemos nosotros, ...
