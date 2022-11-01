@@ -1,13 +1,12 @@
-# Robots Móviles 2021/22. 
+# Robots Móviles 2022/23. 
 # Sesión 2 con los Turtlebot: Mapeado y localización
 
-En esta sesión de trabajo presencial con los Turtlebots vamos a probar los algoritmos de mapeado y localización. Como sabéis solo hay 5 turtlebots por lo que la práctica la tendréis que hacer en grupos. No tienen por qué coincidir con los grupos de la práctica 2, esta sesión de trabajo es independiente.
+En esta sesión de trabajo presencial con los Turtlebots vamos a probar los algoritmos de mapeado y localización.
 
 Los objetivos son:
 
 - **Usar Rviz** para poder ver la información de los sensores del robot real
 - **Probar el mapeado y localización** con el laser real
-- Aprender otra forma de conectarse con el robot, el **modo cliente/servidor**, donde parte del código corre en el robot y otra parte en vuestro ordenador. 
 
 ## Conexión con el robot
 
@@ -15,7 +14,7 @@ Los objetivos son:
 
 En el modo cliente/servidor, el cliente es nuestro PC y el servidor el robot. Hay algunos nodos de ROS que deben correr en el servidor (por ejemplo el `turtlebot_bringup.launch`) y otros en nuestro PC (por ejemplo `RViz`). En otros es indiferente.
 
-> Por desgracia el soporte de Turtlebot 2 no va ahora mismo en los ordenadores del laboratorio, así que tendremos que ejecutar prácticamente todo en el robot salvo el rviz
+> Por desgracia el soporte de Turtlebot 2 no funciona al 100% ahora mismo en los ordenadores del laboratorio, así que tendremos que ejecutar prácticamente todo en el robot salvo el rviz
 
 Para empezar asegúrate que  **El PC se conecta con la red wifi del laboratorio**, recuerda que el nombre comienza por "labrobot". Usa a ser posible las que llevan un 5 en el nombre, son las de 5Ghz y deberían tener un mayor ancho de banda.
 
@@ -24,14 +23,17 @@ Para empezar asegúrate que  **El PC se conecta con la red wifi del laboratorio*
     - Cierra la terminal y vuelve a abrirla. Si todo ha funcionado OK, debería aparecer un mensaje especificando tu IP y la del robot.
 
 2. En una terminal **conecta con el robot**:
+
+    > Para acortar, al ejecutar el archivo `setvars.sh` se habrá definido un comando `sshrobot` (sin argumentos) que actúa como alias de lo anterior, úsalo si quieres para no teclear tanto. El comando ya toma automáticamente la ip del robot, login y password.
     - `ssh turtlebot@ip_del_robot` (en el robot 5 es `ssh tb2@ip_del_robot`), la contraseña es `ros`.
     - Recuerda que el turtlebot 1 es la `192.168.1.5` y así sucesivamente hasta el 5 que es la `192.168.1.9`.
+    
     - En esta terminal arranca el robot: 
     
       ```bash
       roslaunch turtlebot_bringup minimal.launch
       ```
-    - En otra terminal del robot arranca el laser (para abrir otra terminal en el robot necesitarás hacer `ssh turtlebot@ip_del_robot` otra vez desde el PC)
+    - En otra **terminal del robot** arranca el laser (para abrir otra terminal en el robot necesitarás hacer `sshrobot`o `ssh turtlebot@ip_del_robot` o  otra vez desde el PC)
      
       ```bash
       roslaunch turtlebot_bringup hokuyo_ust10lx.launch
@@ -43,9 +45,7 @@ Para empezar asegúrate que  **El PC se conecta con la red wifi del laboratorio*
 
 ## Pruebas con RViz. Visualización de los sensores
 
-En modo cliente/servidor sí que se puede usar RViz, a diferencia de VNC (lo que usábamos hasta ahora para conectar con los robots).
-
-En una **terminal en tu PC** ejecuta RViz con
+Para visualizar los sensores del robot usamos RViz. En una **terminal en tu PC** ejecuta RViz con
 
 ```bash
 rosrun rviz rviz
@@ -57,7 +57,7 @@ rosrun rviz rviz
 
 Añadir una visualización para el laser (botón `Add` abajo a la izquierda > en el listado `By Display Type` seleccionar `LaserScan`). Una vez añadida aparecerá en el panel de la izquierda, cambiar el `topic` a `/scan`. Debería aparecer una línea con las distancias detectadas por el laser.
 
-Para ver en RViz a dónde está mirando el robot puedes añadir sus ejes de coordenadas: botón `Add` abajo a la izquierda > en el listado `By Display Type` seleccionar `Axes`. Una vez añadido, en el panel de la izquierda desplegar el `Axes` y cambiar el Reference frame` a `base_link`. El eje rojo es el X, que apunta hacia el frente, el Y el verde y el Z el Azul (siguiendo el orden clásico R-G-B). 
+Para ver en RViz a dónde está mirando el robot puedes añadir sus ejes de coordenadas: botón `Add` abajo a la izquierda > en el listado `By Display Type` seleccionar `Axes`. Una vez añadido, en el panel de la izquierda desplegar el `Axes` y cambiar el Reference frame a `base_link`. El eje rojo es el X, que apunta hacia el frente, el Y el verde y el Z el Azul (siguiendo el orden clásico R-G-B). 
 
 
 Puedes probar a mover el robot para ver cómo cambian las lecturas. **En una terminal en el robot** lanza el `roslaunch turtlebot_teleop keyboard_teleop.launch`. Recuerda que esta ventana tiene que tener el foco del teclado para que funcione.
@@ -127,17 +127,14 @@ Fíjale un punto y comprueba si calcula una trayectoria razonable y se mueve cor
 
 ## Entrega
 
-La práctica se realiza y por tanto se **entrega por grupos**. La memoria la entregará un único miembro del grupo en moodle. En la memoria es donde figurarán los nombres de todos los componentes.
+La parte realizada hoy se adjuntará a la **memoria principal de la práctica** y debe incluir:
 
-La **memoria** debe incluir:
-
-+ 1-2 páginas describiendo los resultados: si son buenos o malos en general, qué diferencias habéis notado con la simulación (si las hay),
-    + imágenes con la visualización del laser.
++ 1-2 páginas describiendo los resultados: si son buenos o malos en general, qué diferencias habéis notado con la simulación (si las hay). Incluid videos si podéis.
+    + imágenes con la visualización del laser en Rviz
     + mapeado: poned una imagen del/los mapa/s, qué partes del mapa han salido mejor/peor, qué partes del laboratorio/mobiliario ha detectado mejor/peor el sensor... (y por qué puede ser, si se os ocurre), 
     +  localización: qué tal ha funcionado, si se pierde el robot en algún momento....
     +  navegación autónoma: qué tal ha funcionado, ¿llega el robot al destino? evita los obstáculos imprevistos?
 + Los archivos con el mapa generado durante la sesión  (.pgm y .yaml) (si hacéis más de una prueba, incluid todos los mapas generados).
-+ Para la localización, un video de rviz que muestre al robot navegando por el entorno y actualizando su posición (podéis filmarlo con un móvil para que se vea rviz y también dónde está el robot en el mundo real). 
 
 Al ser el límite de la entrega de 50Mb, si no os cabe todo tendréis que guardar el/los video/s en Google Drive, o subirlo/s a Youtube o similar y luego poner los enlaces en la documentación.
 
