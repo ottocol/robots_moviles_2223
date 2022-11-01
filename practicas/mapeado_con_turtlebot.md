@@ -1,4 +1,3 @@
-# Robots Móviles 2022/23. 
 # Sesión 2 con los Turtlebot: Mapeado y localización
 
 En esta sesión de trabajo presencial con los Turtlebots vamos a probar los algoritmos de mapeado y localización.
