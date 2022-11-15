@@ -76,7 +76,7 @@ La práctica se puede desarrollar **individualmente o bien por parejas**.
 
 > Podéis compartir con vuestros compañeros las ideas de cómo funciona el algoritmo (y de hecho si lo discutís y os dais ideas entre vosotros será más enriquecedor) pero el código Python o C++ debería ser exclusivamente vuestro. Sería recomendable que si habéis colaborado en el desarrollo del algoritmo os referenciéis unos a otros en la documentación entregada ("la idea del algoritmo ha surgido en colaboración con XXX e YYY..."). Así evitaréis que en caso de darme cuenta de la semejanza asuma que os habéis copiado.
 
-La práctica se entregará a través de moodle. El plazo de entrega concluye el **martes 4 de octubre a las 23:59**. Si la hacéis por parejas solo debéis hacer una entrega conjunta desde el moodle de uno de los dos componentes. En la documentación figurará el nombre de ambas personas.
+La práctica se entregará a través de moodle. El plazo de entrega concluye el **martes 4 de octubre a las 23:59**, pero la parte del **informe con las pruebas sobre el robot real se pospone hasta el martes 11 de octubre a las 23:59**. Si la hacéis por parejas solo debéis hacer una entrega conjunta desde el moodle de uno de los dos componentes. En la documentación figurará el nombre de ambas personas.
 
 Tenéis que entregar:
 
