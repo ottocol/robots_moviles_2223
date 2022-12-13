@@ -4,7 +4,7 @@
 
 # Robots móviles <!-- .element: class="column half" -->
 
-## Tema 6. Navegación.
+## Tema 5. Navegación.
 ## Parte I: Planificación de trayectorias <!-- .element: class="column half" -->
 
 ---
