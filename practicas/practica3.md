@@ -68,8 +68,8 @@ Si tomáis código de otros **debéis referenciar en la memoria la fuente origin
 
 ### Plazo y procedimiento de entrega
 
-- La práctica se podrá entregar **hasta las 23:59 horas del lunes 9 de enero de 2023**
-- La entrega se realizará a través del moodle en un fichero .zip. Como el tamaño máximo de la entrega son 20Mb si queréis añadir recursos adicionales
+- La práctica se podrá entregar ~~hasta las 23:59 horas del lunes 9 de enero de 2023~~ **hasta las 23:59 horas del domingo 15 de enero de 2023**
+- La entrega se realizará a través del moodle en un fichero .zip. Como el tamaño máximo de la entrega son 20Mb si queréis añadir recursos adicionales tendréis que subirlos a algún sitio como Google Drive o similar 
 
 
 ## Apéndice: moverse a un punto del mapa en Python: `MoveBaseAction`
